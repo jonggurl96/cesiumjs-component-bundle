@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# React 프로젝트 구조
 
-## Getting Started
+## 기본 디렉토리 구조
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```text
+cesiumjs_component
+├── node_modules
+├── public
+├── src
+├── .gitignore
+├── package.json
+├── README.md
+└── React_README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- node_modules: 프로젝트에 설치된 모든 라이브러리가 저장되는 폴더
+- public: 컴파일이 필요없는 정적파일이 포함된 폴더
+- src: 실제 어플리케이션 코드가 작성되는 폴더.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## `src` 폴더 내부 구조
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+src
+├── components
+├── assets
+├── hooks
+├── pages
+├── constants
+├── config
+├── styles
+├── services
+├── utils
+├── contexts
+├── App.js
+└── index.js
 
-## Learn More
+```
 
-To learn more about Next.js, take a look at the following resources:
+- components: 재사용 가능한 컴포넌트를 저장하는 폴더
+- assets: 컴포넌트 내부에서 사용하는 이미지, 아이콘, 폰트 등 정적 자산을 관리
+- hooks: 커스텀 React 훅을 관리하는 폴더
+- pages: 페이지 단위 컴포넌트를 저장하며, React Router와 연계하여 사용
+- constants: 공통적으로 사용되는 상수들을 정의한 파일들이 위치
+- config: 환경 설정 관련 파일들을 저장. API 엔드포인트 설정 등이 포함
+- styles: css 또는 scss 파일을 모듈화하여 관리. 전역 스타일이나 테마 설정도 여기에 포함
+- services: API 호출이나 외부 서비스와의 상호작용을 담당하는 로직
+- utils: 정규표현식 패턴이나 공통 함수 등 유틸리티 코드를 저장
+- contexts: Context API를 사용하는 경우 전역 상태 관리 관련 파일들이 위치하며 Redux를 사용하는 경우 `store`로 이름을 변경하기도 함.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
