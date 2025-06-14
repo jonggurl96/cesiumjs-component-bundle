@@ -33,7 +33,46 @@ cesiumjs-component-bundle
 └── README.md           // 현재 파일
 ```
 
+# CesiumJS 연동
 
+1. 라이브러리 설치
+   ```shell
+   npm install cesium
+   ```
+
+2. Cesium 리소스 파일 복사
+
+   ```javascript
+   // next.config.js 예시
+   
+   const CopyWebpackPlugin = require("copy-webpack-plugin");
+   const path = require("path");
+   
+   module.exports = {
+        webpack: (config, { isServer }) => {
+	        if (!isServer) {
+	            config.plugins.push(
+	                new CopyWebpackPlugin({
+	                    patterns: [{
+						   from: path.join(__dirname, "node_modules/cesium/Build/Cesium/Workers"),
+						   to: path.join(__dirname, "public/Cesium/Workers"),
+	                    },  {
+						   from: path.join(__dirname, "node_modules/cesium/Source/Assets"),
+						   to: path.join(__dirname, "public/Cesium/Assets"),
+	                    }, {
+	                        from: path.join(__dirname, "node_modules/cesium/Source/Widgets"),
+	                        to: path.join(__dirname, "public/Cesium/Widgets"),
+	                    }, {
+						   from: path.join(__dirname, "node_modules/cesium/Source/ThirdParty"),
+						   to: path.join(__dirname, "public/Cesium/ThirdParty"),
+	                    }],
+	                })
+	            );
+	        }
+	        return config;
+	        },
+        };
+	```
 
 
 
