@@ -15,13 +15,13 @@ const nextConfig = {
 					from: path.join(__dirname, "node_modules/cesium/Build/Cesium/Workers"),
 					to  : path.join(__dirname, "public/Cesium/Workers"),
 				}, {
-					from: path.join(__dirname, "node_modules/cesium/Source/Cesium/Assets"),
+					from: path.join(__dirname, "node_modules/cesium/Source/Assets"),
 					to  : path.join(__dirname, "public/Cesium/Assets"),
 				}, {
-					from: path.join(__dirname, "node_modules/cesium/Source/Cesium/Widgets"),
+					from: path.join(__dirname, "node_modules/cesium/Source/Widgets"),
 					to  : path.join(__dirname, "public/Cesium/Widgets"),
 				}, {
-					from: path.join(__dirname, "node_modules/cesium/Source/Cesium/ThirdParty"),
+					from: path.join(__dirname, "node_modules/cesium/Source/ThirdParty"),
 					to  : path.join(__dirname, "public/Cesium/ThirdParty"),
 				}],
 			})
