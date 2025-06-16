@@ -10,15 +10,19 @@
   },
   "dependencies": {
     "cesium": "^1.129.0",
-    "copy-webpack-plugin": "^13.0.0",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "copy-webpack-plugin": "^13.0.0",
     "eslint": "^9",
-    "eslint-config-next": "15.3.3"
+    "eslint-config-next": "15.3.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.20.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-react": "^7.37.5"
   },
   "type": "module"
 }

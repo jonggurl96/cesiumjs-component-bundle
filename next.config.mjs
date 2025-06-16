@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	webpack: (config, { isServer }) => {
+	webpack: (config, { webpack, isServer }) => {
 		if(isServer) return config;
 		config.plugins.push(
 			new CopyWebpackPlugin({
@@ -24,6 +24,9 @@ const nextConfig = {
 					from: path.join(__dirname, "node_modules/cesium/Source/ThirdParty"),
 					to  : path.join(__dirname, "public/Cesium/ThirdParty"),
 				}],
+			}),
+			new webpack.DefinePlugin({
+				CESIUM_BASE_URL: JSON.stringify("/Cesium")
 			})
 		);
 		return config;
