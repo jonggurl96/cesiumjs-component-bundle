@@ -50,7 +50,7 @@ export default function DarkmodeButton() {
 	return (
 		<Button style={{ width : 40, height: 40, cursor: 'pointer', padding: 3 }} onClick={toggleTheme}>
 			<div style={{ position : "relative", top: 0, left: 0, width: "100%", height: "100%" }}>
-				<Image src={iconUrl}  alt={theme === "dark" ? "라이트모드" : "다크모드"} style={{ objectFit: "cover" }} fill />
+				<Image src={iconUrl} alt={theme === "dark" ? "라이트모드" : "다크모드"} style={{ objectFit: "cover" }} fill />
 			</div>
 		</Button>
 	);
