@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<DocumentProvider>
-			<body className={KRDS_FONT.BLACK.className}>
+			<body className={KRDS_FONT.REGULAR.className}>
 			{children}
 			</body>
 		</DocumentProvider>
