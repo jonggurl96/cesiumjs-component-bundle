@@ -1,0 +1,7 @@
+.Button {
+	background-color: var(--component-background);
+	border: 1px solid var(--border);
+	border-radius: 5px;
+	color: var(--foreground);
+	text-align: center;
+}
