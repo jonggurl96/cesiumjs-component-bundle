@@ -1,16 +1,6 @@
-import DocumentProvider      from "@app/_components/document/DocumentProvider.jsx";
-import { Geist, Geist_Mono } from "next/font/google";
+import DocumentProvider    from "@app/_components/document/DocumentProvider.jsx";
+import { KRDS_FONT } from "@app/_components/_font/FontContainer.js";
 import "./globals.css";
-
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets : ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets : ["latin"],
-});
 
 export const metadata = {
 	title      : "Create Next App",
@@ -20,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<DocumentProvider>
-			<body className={`${geistSans.variable} ${geistMono.variable}`}>
+			<body className={KRDS_FONT.BLACK.className}>
 			{children}
 			</body>
 		</DocumentProvider>
