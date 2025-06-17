@@ -1,7 +1,7 @@
 'use client';
 
-import { createCesiumViewer }         from "@utils/cesium/viewerUtils.js";
-import React, { useEffect, useState } from 'react';
+import { createCesiumViewer, moveCameraDefaultRectangle, setViewerEventHandler } from "@utils/cesium/viewerUtils.js";
+import React, { useEffect, useState }                                            from 'react';
 import "./CesiumContainer.css";
 
 const cesiumContainerId = "cesiumContainer";
@@ -14,7 +14,8 @@ export default function CesiumContainer() {
 		if(cesiumViewerLoaded) return;
 		createCesiumViewer(cesiumContainerId)
 			.then(() => {
-				console.log("CesiumContainer created.");
+				setViewerEventHandler(document);
+				moveCameraDefaultRectangle();
 				setCesiumViewerLoaded(true);
 			});
 	}, [cesiumViewerLoaded]);

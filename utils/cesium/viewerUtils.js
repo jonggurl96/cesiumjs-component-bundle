@@ -25,10 +25,10 @@ let globe;
 let ellipsoid;
 
 const KOREA_EXTENT = {
-	EAST : 132.8783,
-	WEST : 123.1833,
-	SOUTH: 32.1111,
-	NORTH: 44.0083,
+	EAST : 131.8783,
+	WEST : 124.1833,
+	SOUTH: 33.1111,
+	NORTH: 43.0083,
 };
 
 /**
@@ -75,4 +75,29 @@ export async function createCesiumViewer(containerId = "cesiumContainer", option
 	globe = viewer.scene.globe;
 
 	ellipsoid = globe.ellipsoid;
+}
+
+export function moveCameraDefaultRectangle() {
+	camera.flyTo({
+		destination: Cesium.Camera.DEFAULT_VIEW_RECTANGLE,
+		duration   : 0.5,
+	});
+}
+
+/**
+ * @param doc {Document}
+ */
+export function setViewerEventHandler(doc) {
+	document.addEventListener('keypress', (e) => {
+		switch(e.key) {
+			case 'v':
+				console.log(viewer);
+				break;
+			case 'c':
+				console.log(camera);
+				break;
+			default:
+				break;
+		}
+	});
 }
