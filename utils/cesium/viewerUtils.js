@@ -84,10 +84,7 @@ export function moveCameraDefaultRectangle() {
 	});
 }
 
-/**
- * @param doc {Document}
- */
-export function setViewerEventHandler(doc) {
+export function setViewerEventHandler() {
 	document.addEventListener('keypress', (e) => {
 		switch(e.key) {
 			case 'v':

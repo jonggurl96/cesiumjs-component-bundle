@@ -14,7 +14,7 @@ export default function CesiumContainer() {
 		if(cesiumViewerLoaded) return;
 		createCesiumViewer(cesiumContainerId)
 			.then(() => {
-				setViewerEventHandler(document);
+				setViewerEventHandler();
 				moveCameraDefaultRectangle();
 				setCesiumViewerLoaded(true);
 			});
