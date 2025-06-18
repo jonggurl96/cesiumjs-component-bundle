@@ -1,0 +1,21 @@
+.compassContainer {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	background-color: var(--background);
+	border: 1px solid var(--border);
+	border-radius: 50%;
+	width: 128px;
+	height: 128px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.compassSpinner {
+	width: 90%;
+	height: 90%;
+	background: url("./compass.svg") center center/cover no-repeat;
+	cursor: pointer;
+	transition: transform 0.2s;
+}

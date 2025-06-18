@@ -24,6 +24,22 @@ let globe;
  */
 let ellipsoid;
 
+/**
+ * Cesium Viewer 반환 함수
+ * @returns {module:cesium.Viewer}
+ */
+export function getViewer() {
+	return viewer;
+}
+
+/**
+ * Cesium Viewer.Camera 반환 함수
+ * @returns {module:cesium.Camera}
+ */
+export function getCamera() {
+	return camera;
+}
+
 const KOREA_EXTENT = {
 	EAST : 131.8783,
 	WEST : 124.1833,
@@ -87,11 +103,14 @@ export function moveCameraDefaultRectangle() {
 export function setViewerEventHandler() {
 	document.addEventListener('keypress', (e) => {
 		switch(e.key) {
-			case 'v':
-				console.log(viewer);
-				break;
 			case 'c':
 				console.log(camera);
+				break;
+			case 'e':
+				console.log(viewer.entities);
+				break;
+			case 'v':
+				console.log(viewer);
 				break;
 			default:
 				break;
