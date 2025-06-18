@@ -1,14 +1,14 @@
-import * as Cesium from 'cesium';
+import { getCamera } from "@utils/cesium/viewerUtils.js";
+import * as Cesium   from 'cesium';
 
 /**
  *
- * @param camera {module:cesium.Camera}
  * @param rotateCompass {function(number): void}
  */
-export function rotateCompassByCamera(camera, rotateCompass) {
+export function rotateCompassByCamera(rotateCompass) {
+	const camera = getCamera();
 
 	camera.changed.addEventListener(() => {
 		rotateCompass(Cesium.Math.toDegrees(camera.heading));
 	});
-
 }

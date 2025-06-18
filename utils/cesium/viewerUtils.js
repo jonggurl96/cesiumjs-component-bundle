@@ -1,4 +1,5 @@
-import * as Cesium from "cesium";
+import { getKoreaExtentRectangle } from "@utils/cesium/coord/extentUtils.js";
+import * as Cesium                 from "cesium";
 
 /**
  * Cesium Viewer
@@ -40,12 +41,21 @@ export function getCamera() {
 	return camera;
 }
 
-const KOREA_EXTENT = {
-	EAST : 131.8783,
-	WEST : 124.1833,
-	SOUTH: 33.1111,
-	NORTH: 43.0083,
-};
+/**
+ * Cesium Viewer.Scene.Globe 반환 함수
+ * @returns {module:cesium.Globe}
+ */
+export function getGlobe() {
+	return globe;
+}
+
+/**
+ * Cesium Viewer.Scene.Globe.Ellipsoid 반환 함수
+ * @returns {module:cesium.Ellipsoid}
+ */
+export function getEllipsoid() {
+	return ellipsoid;
+}
 
 /**
  * @param containerId {Element | string}
@@ -54,7 +64,7 @@ const KOREA_EXTENT = {
 export async function createCesiumViewer(containerId = "cesiumContainer", options) {
 
 	Cesium.Ion.defaultAccessToken = process.env.NEXT_PUBLIC_CESIUM_ACCESSTOKEN;
-	Cesium.Camera.DEFAULT_VIEW_RECTANGLE = Cesium.Rectangle.fromDegrees(KOREA_EXTENT.WEST, KOREA_EXTENT.SOUTH, KOREA_EXTENT.EAST, KOREA_EXTENT.NORTH);
+	Cesium.Camera.DEFAULT_VIEW_RECTANGLE = getKoreaExtentRectangle();
 
 	viewer = new Cesium.Viewer(containerId, Object.assign({
 		useDefaultRenderLoop                  : true,
@@ -91,13 +101,6 @@ export async function createCesiumViewer(containerId = "cesiumContainer", option
 	globe = viewer.scene.globe;
 
 	ellipsoid = globe.ellipsoid;
-}
-
-export function moveCameraDefaultRectangle() {
-	camera.flyTo({
-		destination: Cesium.Camera.DEFAULT_VIEW_RECTANGLE,
-		duration   : 0.5,
-	});
 }
 
 export function setViewerEventHandler() {
