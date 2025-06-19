@@ -68,3 +68,24 @@ export function windowCenterToGroundCartesian3(outerWidth, outerHeight) {
 	const centerCartesian3 = windowCenterToCartesian3(outerWidth, outerHeight);
 	return cartesianToGroundCartesian3(centerCartesian3);
 }
+
+/**
+ * 카메라 이동 시 좌표 수정
+ * @param callback {function({longitude: number, latitude: number, height: number})}
+ */
+export function setCoordRenderHandler(callback) {
+	const camera = getCamera();
+
+	camera.changed.addEventListener(() => {
+		const clientWidth = window.innerWidth;
+		const clientHeight = window.innerHeight;
+		const centerCartesian3 = windowCenterToGroundCartesian3(clientWidth, clientHeight);
+		const centerCartographic = Cesium.Cartographic.fromCartesian(centerCartesian3, getEllipsoid());
+
+		callback({
+			longitude: Cesium.Math.toDegrees(centerCartographic.longitude),
+			latitude : Cesium.Math.toDegrees(centerCartographic.latitude),
+			height   : camera.positionCartographic.height,
+		});
+	});
+}
