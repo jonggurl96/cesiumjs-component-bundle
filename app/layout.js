@@ -1,7 +1,6 @@
-import DocumentProvider    from "@app/_components/document/DocumentProvider.jsx";
-import { KRDS_FONT } from "@app/_components/_font/FontContainer.js";
+import { KRDS_FONT }    from "@app/_components/_font/FontContainer.js";
 import "./globals.css";
-import MapCompass          from "@components/cesium/compass/MapCompass.jsx";
+import DocumentProvider from "@app/_components/document/DocumentProvider.jsx";
 
 export const metadata = {
 	title      : "Create Next App",
@@ -13,7 +12,6 @@ export default function RootLayout({ children }) {
 		<DocumentProvider>
 			<body className={KRDS_FONT.REGULAR.className}>
 			{children}
-			<MapCompass />
 			</body>
 		</DocumentProvider>
 	);

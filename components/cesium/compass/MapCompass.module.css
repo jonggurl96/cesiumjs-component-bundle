@@ -1,16 +1,8 @@
 .compassContainer {
-	--background: transparent;
-}
-
-[data-theme="dark"] .compassContainer {
-	--background: #0000008f;
-}
-
-.compassContainer {
 	position: absolute;
 	bottom: 20px;
 	right: 20px;
-	background-color: var(--background);
+	background-color: var(--component-background);
 	border: 1px solid var(--border);
 	border-radius: 50%;
 	width: 128px;
