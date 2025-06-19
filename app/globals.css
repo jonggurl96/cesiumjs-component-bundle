@@ -1,15 +1,15 @@
 :root {
-	--background: #ffffff;
-	--component-background: #ffffffe3;
+	--background: #FFF;
+	--component-background: #FFF;
 	--foreground: #171717;
-	--border: #e4e4e4;
+	--border: #E4E4E4;
 }
 
 :root[data-theme="dark"] {
-	--background: #0a0a0a;
-	--component-background: #0a0a0aca;
-	--foreground: #ededed;
-	--border: #261eff;
+	--background: #0A0A0A;
+	--component-background: #0A0A0ACA;
+	--foreground: #EDEDED;
+	--border: #261EFF;
 }
 
 html,
@@ -42,4 +42,13 @@ div {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
+}
+
+div.transparent-mask {
+	background: transparent;
+	pointer-events: none;
+}
+
+div.transparent-mask * {
+	pointer-events: auto;
 }
